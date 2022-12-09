@@ -15,33 +15,25 @@ impl Rucksack {
     }
 
     fn find_common(&self) -> char {
-        let mut common = ' ';
         for a in self.compartments.0.chars() {
-            for b in self.compartments.1.chars() {
-                if a == b {
-                    common = a;
-                    break;
-                }
+            if self.compartments.1.contains(a) {
+                return a;
             }
         }
 
-        common
+        panic!();
     }
 
     fn find_common_with_others(&self, others: &[Rucksack]) -> char {
-        let mut common = ' ';
         for a in self.sack.chars() {
-            let has_common = others
-                .iter()
-                .filter(|&other| other.sack.chars().filter(|&b| a == b).count() > 0);
+            let has_common = others.iter().filter(|&other| other.sack.contains(a));
 
             if has_common.count() == others.len() {
-                common = a;
-                break;
+                return a;
             }
         }
 
-        common
+        panic!();
     }
 }
 
