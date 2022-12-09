@@ -1,15 +1,11 @@
 #[allow(dead_code)]
 mod d1;
-
 #[allow(dead_code)]
 mod d2;
-
 #[allow(dead_code)]
 mod d3;
-
 #[allow(dead_code)]
 mod d4;
-
 mod d5;
 
 fn main() {
