@@ -1,3 +1,3 @@
-pub fn aoc(lines: &Vec<String>) {
+pub fn aoc(lines: &[String]) {
     todo!();
 }
