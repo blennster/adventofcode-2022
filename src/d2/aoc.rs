@@ -85,18 +85,17 @@ enum Outcome {
     Lose = 0,
 }
 
-pub fn aoc(lines: &Vec<String>) {
-    let mut moves = vec![];
-    for line in lines {
-        let m = line.split(' ').map(Move::from_str).collect::<Vec<_>>();
-        moves.push(m);
-    }
+pub fn aoc(lines: &[String]) {
+    let moves: Vec<Vec<Move>> = lines
+        .iter()
+        .map(|line| line.split(' ').map(Move::from_str).collect())
+        .collect();
 
     p1(&moves);
     p2(&moves);
 }
 
-fn p1(moves: &Vec<Vec<Move>>) {
+fn p1(moves: &[Vec<Move>]) {
     let mut score = 0;
     for round in moves {
         let [opponent, player] = [round[0], round[1]];
@@ -107,7 +106,7 @@ fn p1(moves: &Vec<Vec<Move>>) {
     println!("{}", score);
 }
 
-fn p2(moves: &Vec<Vec<Move>>) {
+fn p2(moves: &[Vec<Move>]) {
     let mut score = 0;
     for round in moves {
         let [opponent, field2] = [round[0], round[1]];

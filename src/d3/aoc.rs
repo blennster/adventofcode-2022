@@ -47,23 +47,22 @@ fn priority(c: &char) -> u32 {
     panic!();
 }
 
-pub fn aoc(lines: &Vec<String>) {
+pub fn aoc(lines: &[String]) {
     p1(lines);
     p2(lines);
 }
 
-fn p1(lines: &Vec<String>) {
-    let mut sum = 0;
-    for line in lines {
+fn p1(lines: &[String]) {
+    let sum = lines.iter().fold(0, |acc, line| {
         let rucksack = Rucksack::from_string(line);
         let common = rucksack.find_common();
-        sum += priority(&common);
-    }
+        acc + priority(&common)
+    });
 
     println!("Sum: {}", sum);
 }
 
-fn p2(lines: &Vec<String>) {
+fn p2(lines: &[String]) {
     let mut sum = 0;
     for i in 0..lines.len() / 3 {
         let mut sacks = vec![];

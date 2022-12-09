@@ -8,7 +8,7 @@ mod d3;
 
 fn main() {
     let stdin = std::io::stdin();
-    let lines = stdin.lines().map(Result::unwrap).collect();
+    let lines: Vec<_> = stdin.lines().map(Result::unwrap).collect();
 
     use d3::aoc::aoc;
     aoc(&lines);

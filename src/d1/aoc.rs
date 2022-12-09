@@ -1,6 +1,4 @@
-use std::cmp;
-
-pub fn aoc(lines: &Vec<String>) {
+pub fn aoc(lines: &[String]) {
     let mut calories = vec![0];
     let mut i = 0;
 
@@ -31,10 +29,8 @@ fn p1(calories: &[i32]) {
     println!("Highest: {}", calories.first().unwrap());
 }
 
-fn p2(calories: &Vec<i32>) {
-    // We want the top 3, but we don't want to panic if there are less than 3
-    let len = cmp::min(3, calories.len());
-    let top_n: i32 = calories[0..len].iter().sum();
+fn p2(calories: &[i32]) {
+    let top_three: i32 = calories[0..3].iter().sum();
 
-    println!("Top {}: {}", len, top_n);
+    println!("Top three: {}", top_three);
 }
