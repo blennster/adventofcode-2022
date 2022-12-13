@@ -149,7 +149,7 @@ pub fn aoc(lines: &[String]) {
 
 fn p1(map: &Map) {
     let vis_matrix = map.visibility_matrix();
-    let g: Vec<_> = vis_matrix
+    let vis_matrix: Vec<_> = vis_matrix
         .into_iter()
         .map(|x| {
             x.into_iter()
@@ -162,7 +162,7 @@ fn p1(map: &Map) {
         .collect();
 
     let mut n_visible = 0;
-    for (i, row) in g.iter().enumerate() {
+    for (i, row) in vis_matrix.iter().enumerate() {
         for (j, col) in row.iter().enumerate() {
             print!("[{}, {}]: ", i, j);
             match col {
