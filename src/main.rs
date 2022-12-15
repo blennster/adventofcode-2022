@@ -13,12 +13,14 @@ mod d5;
 mod d6;
 #[allow(dead_code)]
 mod d7;
+#[allow(dead_code)]
 mod d8;
+mod d9;
 
 fn main() {
     let stdin = std::io::stdin();
     let lines: Vec<_> = stdin.lines().map(Result::unwrap).collect();
 
-    use d8::aoc::aoc;
+    use d9::aoc::aoc;
     aoc(&lines);
 }
